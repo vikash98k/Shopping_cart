@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Login{% endblock title %}
+{% block main-content %}
+<div class="container">
+ <div class="row my-3">
+  <div class="col-sm-6 offset-sm-3">
+   <h3>Login</h3>
+   <hr>
+   <form action="" method="post" novalidate class="shadow p-5">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <br>
+    <small><a href="{% url 'password_reset'%}" >Forgot Password ?</a></small> <br>
+    <input type="submit" class="btn btn-primary mt-4" value="Login">
+    <br>
+    <div class="text-center text-primary fw-bold"><small>New to Shopping ? <a href="{% url 'customerregistration' %}"
+       class="text-danger">Create an Account</a> </small></div>
+   </form>
+  </div>
+ </div>
+</div>
+{% endblock main-content %}
